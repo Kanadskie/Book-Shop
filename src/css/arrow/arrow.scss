@@ -1,0 +1,48 @@
+@import '../variables/variables.scss';
+
+.arrow-btn {
+    content: url('../../images/icons/arrow_up.svg');
+    display: none;
+    background: #fff;
+    height: 15px;
+    padding: 7px;
+    border: 1px solid $deep-purple;
+    border-radius: 30%;
+    position: fixed;
+    z-index: 3;
+    bottom: 150px;
+    right: 50px;
+
+    @media screen and (min-width: 1921px) and (max-width: 2560px) {
+        right: 350px;
+    }
+
+    @media screen and (min-width: 1440px) and (max-width: 1920px) {
+        right: 70px;
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1439px) {
+        bottom: 110px;
+        right: 40px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        bottom: 70px;
+        right: 25px;
+    }
+
+    @media screen and (max-width: 425px) {
+        bottom: 50px;
+        right: 10px;
+    }
+
+    &--active {
+        display: block;
+    }
+
+    &:hover {
+        content: url('../../images/icons/arrow_up_active.svg');
+        border-color: $base-red;
+    }
+
+}

@@ -1,0 +1,37 @@
+.arrow-btn {
+  content: url("../../images/icons/arrow_up.svg");
+  display: none;
+  background: #fff;
+  height: 15px;
+  padding: 7px;
+  border: 1px solid #756AD3;
+  border-radius: 30%;
+  position: fixed;
+  z-index: 3;
+  bottom: 150px;
+  right: 50px; }
+  @media screen and (min-width: 1921px) and (max-width: 2560px) {
+    .arrow-btn {
+      right: 350px; } }
+  @media screen and (min-width: 1440px) and (max-width: 1920px) {
+    .arrow-btn {
+      right: 70px; } }
+  @media screen and (min-width: 1025px) and (max-width: 1439px) {
+    .arrow-btn {
+      bottom: 110px;
+      right: 40px; } }
+  @media screen and (max-width: 1024px) {
+    .arrow-btn {
+      bottom: 70px;
+      right: 25px; } }
+  @media screen and (max-width: 425px) {
+    .arrow-btn {
+      bottom: 50px;
+      right: 10px; } }
+  .arrow-btn--active {
+    display: block; }
+  .arrow-btn:hover {
+    content: url("../../images/icons/arrow_up_active.svg");
+    border-color: #FF353A; }
+
+/*# sourceMappingURL=arrow.css.map */

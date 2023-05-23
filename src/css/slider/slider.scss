@@ -1,0 +1,140 @@
+@import '../variables/variables.scss';
+
+.slider {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 75px auto;
+
+    @media screen and (max-width: 425px) {
+        display: none;
+    }
+
+    &-images {
+        margin-bottom: 17px;
+
+        &__item {
+            display: none;
+            width: 1120px;
+            height: 702px;
+            opacity: 0;
+            animation: appearance 2.5s forwards;
+
+            @media screen and (min-width: 1025px) and (max-width: 1439px) {
+                width: 992px;
+                height: 622px;
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 704px;
+                height: 441px;
+            }
+        }
+    }
+
+    &-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: $base-purple;
+            margin-right: 10px;
+            opacity: .2;
+            cursor: pointer;
+        }
+
+        &__item:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.link-sticker {
+    cursor: pointer;
+    // position: absolute;
+}
+
+.active-image {
+    display: block;
+}
+
+.active-dot {
+    display: block;
+    opacity: 1;
+}
+
+.sticker-one {
+    display: block;
+    position: absolute;
+    width: 149px;
+    height: 204px;
+    top: 82px;
+    right: -87px;
+    background: #9E98DC;
+    box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
+
+    &:hover {
+        background: $base-red;
+    }
+
+    &-text {
+        display: block;
+        width: 109px;
+        height: 66px;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 102px 20px 36px 20px;
+        color: $base-blue;
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1439px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.sticker-two {
+    display: block;
+    position: absolute;
+    width: 137px;
+    height: 273px;
+    top: 362px;
+    right: -152px;
+    background: #FF8FE6;
+    box-shadow: 0px 24px 36px 0px rgba(53, 49, 84, 0.28);
+
+    &:hover {
+        background: $base-red;
+    }
+
+    &-text {
+        display: block;
+        width: 69px;
+        height: 88px;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 102px 20px 36px 20px;
+        color: $base-blue;
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1439px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+}

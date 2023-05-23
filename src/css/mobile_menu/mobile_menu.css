@@ -1,0 +1,57 @@
+.mobile-menu {
+  display: none;
+  background: #fff; }
+  @media screen and (min-width: 1025px) and (max-width: 1439px) {
+    .mobile-menu {
+      width: 992px; } }
+  @media screen and (max-width: 1024px) {
+    .mobile-menu {
+      width: 704px; } }
+  @media screen and (max-width: 425px) {
+    .mobile-menu {
+      display: block;
+      width: 304px; } }
+  .mobile-menu--open {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .mobile-menu .switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: #d7d3f3; }
+    .mobile-menu .switcher-instruction {
+      font-size: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-right: 15px; }
+    .mobile-menu .switcher-body {
+      display: flex;
+      position: relative;
+      cursor: pointer;
+      width: 45px;
+      height: 25px;
+      border-radius: 25px;
+      background: #EFEEF6;
+      margin: 20px 0; }
+      .mobile-menu .switcher-body--dark {
+        background: #EFEEF6; }
+      .mobile-menu .switcher-body__btn {
+        position: absolute;
+        cursor: pointer;
+        top: 2px;
+        left: 3px;
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: #cccdcf;
+        transition: all 0.2s ease-in;
+        outline: 0;
+        border: none; }
+        .mobile-menu .switcher-body__btn--dark {
+          background: #756AD3;
+          left: 21px;
+          transition: all 0.2s ease-in; }
+
+/*# sourceMappingURL=mobile_menu.css.map */

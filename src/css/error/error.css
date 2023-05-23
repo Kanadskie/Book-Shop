@@ -1,0 +1,25 @@
+.error {
+  width: 1120px;
+  margin: 0 auto;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.5;
+  padding: 50px 0; }
+  @media screen and (min-width: 1025px) and (max-width: 1439px) {
+    .error {
+      width: 992px; } }
+  @media screen and (max-width: 1024px) {
+    .error {
+      width: 704px; } }
+  @media screen and (max-width: 425px) {
+    .error {
+      padding: 30px 0;
+      font-size: 16px;
+      width: 304px; } }
+
+.purple {
+  font-weight: 700;
+  color: #756AD3; }
+
+/*# sourceMappingURL=error.css.map */
