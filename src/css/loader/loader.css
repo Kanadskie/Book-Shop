@@ -1,5 +1,7 @@
 .loader {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 80px;
   height: 80px;
@@ -21,8 +23,9 @@
         height: 48px; } }
     @media screen and (max-width: 425px) {
       .loader div {
-        width: 32px;
-        height: 32px; } }
+        border-width: 4px;
+        width: 42px;
+        height: 42px; } }
   .loader div:nth-child(1) {
     animation-delay: -0.45s; }
   .loader div:nth-child(2) {
