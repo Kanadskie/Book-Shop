@@ -74,6 +74,9 @@
         @media screen and (min-width: 1025px) and (max-width: 1439px) {
           .cards-item-block__title {
             font-size: 12px; } }
+        @media screen and (max-width: 425px) {
+          .cards-item-block__title {
+            font-size: 10px; } }
       .cards-item-block__rating {
         display: flex;
         align-items: center; }

@@ -1,5 +1,5 @@
-import rate from "./currency"
 import wrong from "./error"
+import loading from "./loader"
 
 export class Cards {
 
@@ -19,11 +19,17 @@ export class Cards {
 
   request(url) {
 
+    loading.init()
+
     fetch(url)
 
     .then(response => { return response.json() })
 
-    .then(async data => { this.writeOutput(this.formatOutput(data, await rate)) })
+    .then(data => { 
+      
+      this.writeOutput(this.formatOutput(data))
+    
+    })
 
     .catch((error) => { 
 
@@ -37,11 +43,19 @@ export class Cards {
 
   requestLoadMore(url) {
 
+    loading.init()
+
     fetch(url)
 
     .then(response => { return response.json() })
 
-    .then(async data => { this.writeOutputLoadMore(this.formatOutput(data, await rate)) })
+    .then(data => {
+      
+      this.writeOutputLoadMore(this.formatOutput(data))
+
+      loading.hide()
+    
+      })
 
     .catch((error) => { 
 
@@ -73,6 +87,8 @@ export class Cards {
 
   currentRequest() {
 
+    let cards = document.querySelector('.cards')
+
     let links = document.querySelectorAll('.nav-category-list__item')
 
     links.forEach(item => {
@@ -99,6 +115,8 @@ export class Cards {
 
         let url = `https://www.googleapis.com/books/v1/volumes?q='${newSubject}'&key=${this.apiKey}&printType=books&startIndex=${this.cardsStartIndex}&maxResults=${this.cardsLimit}&langRestrict=en`
 
+        cards.innerHTML = ''
+
         this.request(url)
 
       })
@@ -107,7 +125,7 @@ export class Cards {
 
   }
 
-  formatOutput(data, rate) {
+  formatOutput(data) {
 
     let cards = ''
 
@@ -135,7 +153,11 @@ export class Cards {
 
         } else {
 
-          authors = item.volumeInfo.authors
+          let authorsFull = item.volumeInfo.authors.join(', ')
+
+          let maxLength = 70
+
+          authors = authorsFull.substring(0, maxLength) + '...'
 
         }
 
@@ -203,6 +225,8 @@ export class Cards {
 
       if (item.saleInfo.hasOwnProperty('retailPrice')) {
 
+        let rate = 80
+
         price = (item.saleInfo.retailPrice.amount / rate).toFixed(2)
 
       } else {
@@ -269,7 +293,7 @@ export class Cards {
       
     let cards = document.querySelector('.cards')
 
-    cards.removeChild(document.querySelector('.load'))
+    // cards.removeChild(document.querySelector('.load'))
 
     cards.innerHTML += card
 
@@ -286,6 +310,10 @@ export class Cards {
     let loadBtn = document.querySelector('.btn-load')
 
     const increaser = () => {
+
+      let cards = document.querySelector('.cards')
+      
+      cards.removeChild(document.querySelector('.load'))
     
       this.cardsStartIndex += this.cardsIncrease
 
@@ -451,251 +479,69 @@ export class Cards {
 
     let averageRatingRow = document.querySelectorAll('.rating-average')
 
-    averageRatingRow.forEach(item => {
-
-      switch (item.textContent) {
-
-        case 'undefined':
-
-        item.parentNode.classList.add('hidden')
-
-        break
-
-        case '0.5':
-
-        item.innerHTML = ''
-
-        for (let i = 0; i < 1; i ++) {
-
-          let starHalf = document.createElement('img')
-          starHalf.src = 'images/icons/star_half.svg'
-          item.appendChild(starHalf)
-
-        }
-
-        for (let i = 0; i < 4; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '1':
-
-        item.innerHTML = ''
-
-        for (let i = 0; i < 1; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
+    averageRatingRow.forEach((item) => {
       
-        }
-
-        for (let i = 0; i < 4; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '1.5':
-
-        item.innerHTML = ''
-  
-        for (let i = 0; i < 1; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
+      const rating = parseFloat(item.textContent)
       
-        }
+      const fullStars = Math.floor(rating)
 
-        for (let i = 0; i < 1; i ++) {
+      const hasHalfStar = rating % 1 !== 0
 
-          let starHalf = document.createElement('img')
-          starHalf.src = 'images/icons/star_half.svg'
-          item.appendChild(starHalf)
+      const emptyStars = 5 - Math.ceil(rating)
 
-        }
+      if (fullStars) {
 
-        for (let i = 0; i < 3; i ++) {
+        item.innerHTML = ""
 
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
+        for (let i = 0; i < fullStars; i++) {
 
-        }
-
-        break
-
-        case '2':
-
-        item.innerHTML = ''
-
-        for (let i = 0; i < 2; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
-      
-        }
-
-        for (let i = 0; i < 3; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '2.5':
-
-        item.innerHTML = ''
-  
-        for (let i = 0; i < 2; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
-      
-        }
-
-        for (let i = 0; i < 1; i ++) {
-
-          let starHalf = document.createElement('img')
-          starHalf.src = 'images/icons/star_half.svg'
-          item.appendChild(starHalf)
-
-        }
-
-        for (let i = 0; i < 2; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '3':
-
-        item.innerHTML = ''
-
-        for (let i = 0; i < 3; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
-      
-        }
-
-        for (let i = 0; i < 2; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '3.5':
-
-        item.innerHTML = ''
-  
-        for (let i = 0; i < 3; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
-      
-        }
-
-        for (let i = 0; i < 1; i ++) {
-
-          let starHalf = document.createElement('img')
-          starHalf.src = 'images/icons/star_half.svg'
-          item.appendChild(starHalf)
-
-        }
-
-        for (let i = 0; i < 1; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '4':
-
-        item.innerHTML = ''
-  
-        for (let i = 0; i < 4; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
-      
-        }
-
-        for (let i = 0; i < 1; i ++) {
-
-          let star = document.createElement('img')
-          star.src = 'images/icons/star.svg'
-          item.appendChild(star)
-
-        }
-
-        break
-
-        case '4.5':
-
-        item.innerHTML = ''
-  
-        for (let i = 0; i < 4; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
-          item.appendChild(starFill)
-      
-        }
-
-        for (let i = 0; i < 1; i ++) {
-
-          let starHalf = document.createElement('img')
-          starHalf.src = 'images/icons/star_half.svg'
-          item.appendChild(starHalf)
-
-        }
-
-        break
-
-        case '5':
-
-        item.innerHTML = ''
-
-        for (let i = 0; i < 5; i ++) {
-
-          let starFill = document.createElement('img')
-          starFill.src = 'images/icons/star_fill.svg'
+          let starFill = document.createElement("img")
+          
+          starFill.src = "images/icons/star_fill.svg"
+          
           item.appendChild(starFill)
 
         }
+
+        if (hasHalfStar) {
         
-        break
+          let starHalf = document.createElement("img")
+          
+          starHalf.src = "images/icons/star_half.svg"
+          
+          item.appendChild(starHalf)
+        
+        }
+
+        if (emptyStars) {
+
+          for (let i = 0; i < emptyStars; i++) { 
+      
+            let star = document.createElement("img")
+            
+            star.src = "images/icons/star.svg"
+            
+            item.appendChild(star)
+            
+          }
+
+        }
+
+      }
+
+      if (item.textContent === 'undefined') {
+
+        item.innerHTML = ""
+
+        for (let i = 0; i < 5; i++) { 
+    
+          let star = document.createElement("img")
+          
+          star.src = "images/icons/star.svg"
+          
+          item.appendChild(star)
+          
+        }
 
       }
 

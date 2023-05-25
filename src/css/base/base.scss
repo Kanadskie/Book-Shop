@@ -4,6 +4,7 @@
 @import '../arrow/arrow.scss';
 @import '../error/error.scss';
 @import '../mobile_menu/mobile_menu.scss';
+@import '../loader/loader.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -25,7 +26,6 @@ body {
     justify-content: center;
     margin: 0 auto;
     max-width: 1440px;
-    // min-width: 1120px;
 
     @media screen and (min-width: 1025px) and (max-width: 1439px) {
         width: 992px;
@@ -58,7 +58,6 @@ body {
         justify-content: space-between;
         align-items: center;
         width: 1120px;
-        // margin: 0 auto;
 
         @media screen and (min-width: 1025px) and (max-width: 1439px) {
             width: 992px;

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Book Shop</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+<body class="body">
+
+    <div class="header">
+
+        <div class="header-block">
+
+            <a class="link link--logo"><span class="logo">Bookshop</span></a>
+
+            <nav class="nav-panel">
+
+                <ul class="nav-panel-list">
+
+                    <li class="nav-panel-list__item"><a class="link link--active">Books</a></li>
+                    <li class="nav-panel-list__item"><a class="link">Audiobooks</a></li>
+                    <li class="nav-panel-list__item"><a class="link">Stationery & Gifts</a></li>
+                    <li class="nav-panel-list__item"><a class="link">Blog</a></li>
+
+                </ul>
+
+            </nav>
+
+            <div class="user-panel">
+
+                <div class="user-panel-btns">
+
+                    <button class="user-panel-btns__item user-panel-btns__item--profile" disabled>
+
+                        <img class="icon-user" src="./images/icons/user.svg" alt="User">
+
+                    </button>
+
+                    <button class="user-panel-btns__item user-panel-btns__item--search" disabled>
+
+                        <img class="icon-search" src="./images/icons/search.svg" alt="Search">
+
+                    </button>
+
+                    <button class="user-panel-btns__item user-panel-btns__item--cart">
+
+                        <span class="bage">
+
+                            <span class="bage-text"></span>
+
+                        </span>
+
+                        <img class="icon-cart" src="./images/icons/cart.svg" alt="Cart">
+
+                    </button>
+
+                </div>
+            
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="slider">
+
+            <div class="slider-images"></div>
+
+            <a class="link-sticker">
+
+                <span class="sticker-one">
+
+                    <span class="sticker-one-text">Change old book on new <img class="icon-arrow" src="./images/icons/arrow.svg" alt="Arrow"></span>
+    
+                </span>
+
+            </a>
+
+            <a class="link-sticker">
+
+                <span class="sticker-two">
+
+                    <span class="sticker-two-text">Top 100 Books 2022 <img class="icon-arrow" src="./images/icons/arrow.svg" alt="Arrow"></span>
+                
+                </span>
+            </a>
+
+            <div class="slider-dots"></div>
+    
+        </div>
+
+        <main class="main">
+
+            <nav class="nav-category">
+
+                <div class="mobile-menu">
+
+                    <div class="switcher">
+
+                        <div class="switcher-instruction">Use switcher to show books category</div>
+                        
+                        <div class="switcher-body">
+
+                            <button class="switcher-body__btn"></button>
+    
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <ul class="nav-category-list">
+
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Architecture">Architecture</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Art">Art & Fashion</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Biography & Autobiography">Biography</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Business">Business</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Crafts & Hobbies">Crafts & Hobbies</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Drama">Drama</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Fiction">Fiction</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Cooking">Food & Drink</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Health & Fitness">Health & Wellbeing</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:History">History & Politics</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Humor">Humor</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Poetry">Poetry</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Psychology">Psychology</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Science">Science</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Technology">Technology</a></li>
+                    <li class="nav-category-list__item"><a class="link" data-category="subject:Travel">Travel & Maps</a></li>
+
+                </ul>
+
+            </nav>
+
+            <section class="cards"></section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
+
